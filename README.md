@@ -36,6 +36,13 @@
   
  </ul>
  <br>
+ 
+```xml
+<users>
+  <user username="testuser" password="testpass" pin="0" />
+  <user username="username" password="password" pin="1234" />
+</users>
+```
 
  </li>
 </ol>
