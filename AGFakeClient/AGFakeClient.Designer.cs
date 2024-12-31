@@ -76,9 +76,9 @@ namespace AGRunner
             this.passb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.passb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.passb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.passb.ForeColor = System.Drawing.Color.White;
             this.passb.Location = new System.Drawing.Point(12, 82);
             this.passb.Name = "passb";
-            this.passb.PasswordChar = '*';
             this.passb.Size = new System.Drawing.Size(151, 26);
             this.passb.TabIndex = 2;
             // 
@@ -221,6 +221,7 @@ namespace AGRunner
             this.pinb.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(28)))), ((int)(((byte)(28)))), ((int)(((byte)(28)))));
             this.pinb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pinb.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.pinb.ForeColor = System.Drawing.Color.White;
             this.pinb.Location = new System.Drawing.Point(12, 144);
             this.pinb.Name = "pinb";
             this.pinb.Size = new System.Drawing.Size(152, 26);
