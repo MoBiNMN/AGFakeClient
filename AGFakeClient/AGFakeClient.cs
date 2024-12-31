@@ -65,7 +65,8 @@ namespace AGRunner
                 string pin = userNode.Attributes["pin"]?.Value;
 
                 ListViewItem item = new ListViewItem(username);
-                item.SubItems.Add(password);
+
+                item.SubItems.Add(new string('*', password.Length));
                 item.SubItems.Add(pin);
 
                 listView1.Items.Add(item);
