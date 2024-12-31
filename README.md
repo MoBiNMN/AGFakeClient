@@ -18,7 +18,7 @@
 ## 🎯 نحوه استفاده
 
 <ol>
-  <li><b>دانلود برنامه</b>: آخرین نسخه <b>AGFakeClient</b> را از صفحه <a href="https://github.com/yourusername/RakAGSamp/releases">Releases</a> دانلود کنید.</li>
+  <li><b>دانلود برنامه</b>: آخرین نسخه <b>AGFakeClient</b> را از صفحه <a href="https://github.com/MoBiNMN/AGFakeClient/releases">Releases</a> دانلود کنید.</li>
   <li><b>نصب</b>: فایل نصب را اجرا کنید و مراحل نصب را دنبال کنید.</li>
   <li><b>اجرا</b>:
     <ul>
