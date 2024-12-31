@@ -1,0 +1,25 @@
+# Ignore 
+*.exe
+*.dll
+*.class
+
+# Ignore 
+*.tmp
+*.log
+*.bak
+
+# Ignore
+bin/
+obj/
+dist/
+release/
+
+
+# Ignore 
+.vscode/
+.idea/
+.vs/
+
+# Ignore 
+*.cache
+*.pyc
