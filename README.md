@@ -1,6 +1,6 @@
 <div dir="rtl" align="right">
 
-# 🌟 AGFakeClient 🌟
+#  AGFakeClient 
 
 ‎🎮‫این ابزار برای اتصال سریع و راحت تر به سرور ارساکیا گیم ساخته شده است.‬‎  
  
@@ -36,18 +36,25 @@
   
  </ul>
  <br>
- 
+ <div dir="ltr" align="left">
+  
 ```xml
 <users>
   <user username="testuser" password="testpass" pin="0" />
   <user username="username" password="password" pin="1234" />
 </users>
 ```
-
+</div>
  </li>
 </ol>
 
+---
 
+## تصاویر 
+![Screenshot (313)](https://github.com/user-attachments/assets/461355e6-9816-4529-b380-c05f221986aa)
+
+
+---
 
 
 
