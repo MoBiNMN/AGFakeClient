@@ -49,7 +49,6 @@ struct stSettings
 	int iClassID;
 	int iUpdateStats;
 	char szClientVersion[20];
-	bool isConsole;
 	char pin[5];
 	bool bHaveUser;
 	char userName[32];

@@ -158,7 +158,7 @@ namespace AGRunner
                 MessageBox.Show("AGRak.exe does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            ClientHandler client = new ClientHandler(userb.Text, passb.Text, pinb.Text);
+            ClientHandler client = new ClientHandler(userb.Text, passb.Text, pinb.Text,log.Checked);
             AGclients.Clients.Add(client);
             client.ConnectA(client);
             refreshacclistview();
@@ -191,7 +191,7 @@ namespace AGRunner
                     continue;
                 }
 
-                ClientHandler client = new ClientHandler(username, password,pin);
+                ClientHandler client = new ClientHandler(username, password,pin,log.Checked);
                 AGclients.Clients.Add(client);
                 client.ConnectA(client);
                

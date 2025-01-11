@@ -4,8 +4,7 @@ void RunCommand(char* szCMD)
 {
 	if (szCMD[0] == 0x00)
 		return;
-	if (settings.isConsole)
-		memset(&szCMD[(strlen(szCMD) - 2)], 0, 2);
+	memset(&szCMD[(strlen(szCMD) - 2)], 0, 2);
 	if (szCMD[0] == '!') {
 		szCMD++;
 		if (!strncmp(szCMD, "seltd", 5) || !strncmp(szCMD, "SELTD", 5))

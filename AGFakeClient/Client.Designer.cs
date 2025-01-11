@@ -50,9 +50,9 @@ namespace AGRunner
             this.textBoxOutput.Name = "textBoxOutput";
             this.textBoxOutput.ReadOnly = true;
             this.textBoxOutput.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.textBoxOutput.ShortcutsEnabled = false;
             this.textBoxOutput.Size = new System.Drawing.Size(782, 393);
             this.textBoxOutput.TabIndex = 0;
-            this.textBoxOutput.TextChanged += new System.EventHandler(this.textBoxOutput_TextChanged);
             // 
             // textBox1
             // 

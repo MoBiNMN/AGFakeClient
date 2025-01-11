@@ -14,6 +14,7 @@ namespace AGRunner
 {
     public partial class Client : Form
     {
+        private StringBuilder chat = new StringBuilder();
         private string username;
         private ClientHandler client;
         public Client(string username,ClientHandler client)
@@ -28,19 +29,23 @@ namespace AGRunner
 
             public void AppendText(string text)
             {
-                this.Text = $"UserName : {username} PiD: {client.process.Id}";
-                if (!string.IsNullOrEmpty(text))
+            this.Text = $"UserName : {username} PiD: {client.process.Id}";
+            if (!string.IsNullOrEmpty(text))
+            {
+                chat.AppendLine(text);
+                var lines = chat.ToString().Split(new[] { Environment.NewLine }, StringSplitOptions.None);
+                if (lines.Length > 185)
                 {
-                    textBoxOutput.AppendText(text + Environment.NewLine);
+                    chat.Clear();
+                    chat.Append(string.Join(Environment.NewLine, lines.Skip(lines.Length - 50)));
                 }
+                textBoxOutput.Text = chat.ToString();
+               textBoxOutput.SelectionStart = textBoxOutput.Text.Length;
+                textBoxOutput.ScrollToCaret();
             }
-
-
-
-        private void textBoxOutput_TextChanged(object sender, EventArgs e)
-        {
-
         }
+
+
 
         private void Sendbtn_Click(object sender, EventArgs e)
         {

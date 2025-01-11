@@ -5,6 +5,7 @@
 stRakClient client{};
 FILE* flLog = NULL;
 stSettings settings{};
+bool lg = false;
 std::atomic<bool> running(true);
 char szInputBuffer[512];
 bool isEmpty(const char* str) {
@@ -35,14 +36,13 @@ void processInput() {
 }
 int main(int argc, char* argv[]) {
 	srand((unsigned int)GetTickCount64());
-
-
-	if (argc > 1 && isSubstring(argv[1], "--connect")) {
-		settings.isConsole = false;
-
-
-
-		
+	if (argc > 1) {
+		for (int i = 1; i < argc; i++) {
+			if (isSubstring(argv[i], "--log")) {
+				lg = true;
+				break;
+			}
+		}
 		for (int i = 1; i < argc; i++) {
 			if (isSubstring(argv[i], "--connect")) {
 				
@@ -59,8 +59,6 @@ int main(int argc, char* argv[]) {
 				}
 			}
 		}
-
-
 		if (strlen(settings.userName) == 0 || strlen(settings.userPassword) == 0) {
 			Log("Username and password is empty!");
 			return 1;
@@ -77,14 +75,11 @@ int main(int argc, char* argv[]) {
 
 
 	auto* rakClient = client.rakClient = RakNetworkFactory::GetRakClientInterface();
-	if (rakClient == NULL)
-		return 0;
+	if (rakClient == NULL) return 0;
 	rakClient->SetMTUSize(576);
 	RegisterRPCs();
-
 	char szInfo[1024];
 	int whileCounter = 20;
-
 	std::thread inputThread(processInput);
 	while (true)
 	{
@@ -155,8 +150,8 @@ int main(int argc, char* argv[]) {
 		
 		if (!whileCounter) whileCounter = 20;
 		else --whileCounter;
+		Sleep(50);
 
-		Sleep(30);
 	}
 
 	if (flLog != NULL)
@@ -179,23 +174,28 @@ void Log(const char* fmt, ...)
 	vsprintf_s(buffer, 512, fmt, args);
 	va_end(args);
 	std::cout << buffer << std::endl;
-
-	if (flLog == NULL)
-	{
-		flLog = fopen("AGFakeClient.log", "a");
-
+	if (lg) {
 		if (flLog == NULL)
-			return;
+		{
+			char fileName[256];
+			snprintf(fileName, sizeof(fileName), "AGFakeLog-%s.txt", settings.userName);
+			for (int i = 9; fileName[i] != '\0'; ++i) {
+				fileName[i] = static_cast<char>(tolower(fileName[i]));
+			}
+			flLog = fopen(fileName, "a");
+
+			if (flLog == NULL)
+				return;
+		}
+		SYSTEMTIME time;
+		GetLocalTime(&time);
+
+		fprintf(flLog, "[%02d:%02d:%02d.%03d] ", time.wHour, time.wMinute, time.wSecond, time.wMilliseconds);
+
+		fprintf(flLog, buffer);
+		fprintf(flLog, "\n");
+		fflush(flLog);
 	}
-	SYSTEMTIME time;
-	GetLocalTime(&time);
-
-	fprintf(flLog, "[%02d:%02d:%02d.%03d] ", time.wHour, time.wMinute, time.wSecond, time.wMilliseconds);
-
-	fprintf(flLog, buffer);
-	fprintf(flLog, "\n");
-	fflush(flLog);
-
 
 }
 

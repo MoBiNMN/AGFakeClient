@@ -54,6 +54,7 @@ namespace AGRunner
             this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.label4 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.log = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // Connectbtn
@@ -269,6 +270,17 @@ namespace AGRunner
             this.timer1.Interval = 5000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // log
+            // 
+            this.log.AutoSize = true;
+            this.log.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.log.Location = new System.Drawing.Point(219, 142);
+            this.log.Name = "log";
+            this.log.Size = new System.Drawing.Size(117, 28);
+            this.log.TabIndex = 16;
+            this.log.Text = "Save Logs";
+            this.log.UseVisualStyleBackColor = true;
+            // 
             // AGFakeClient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -276,6 +288,7 @@ namespace AGRunner
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(47)))), ((int)(((byte)(63)))));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(606, 450);
+            this.Controls.Add(this.log);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Acclistview);
             this.Controls.Add(this.label3);
@@ -326,6 +339,7 @@ namespace AGRunner
         private ColumnHeader Pin;
         private ColumnHeader Nickname;
         private ColumnHeader Status;
+        private CheckBox log;
     }
 }
 

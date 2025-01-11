@@ -13,22 +13,24 @@ namespace AGRunner
         public string Username { get; set; }
         public string Password { get; set; }
         public string Pin { get; set; }
+        public bool Log { get; set; }
         public string Connectionstat { get; set; }
         public bool Connected { get; set; }
         public Process process;
         public Client outputForm;
         public Dialog DialogForm;
  
-        public ClientHandler(string username, string password, string pin)
+        public ClientHandler(string username, string password, string pin,bool log)
         {
             Username = username;
             Password = password;
             Pin = pin;
+            Log = log;
         }
 
         public void ConnectA(ClientHandler client)
         {
-
+            string lg = Log ? " --log" : "";
             Connectionstat = "Connecting...";
             if (outputForm == null)
             {
@@ -43,7 +45,7 @@ namespace AGRunner
                     StartInfo = new ProcessStartInfo
                     {
                         FileName = "AGRak.exe",
-                        Arguments = $"--connect {client.Username} {client.Password} {client.Pin}",
+                        Arguments = $"--connect {client.Username} {client.Password} {client.Pin}{lg}",
                         RedirectStandardOutput = true,
                         RedirectStandardInput = true,
                         UseShellExecute = false,
