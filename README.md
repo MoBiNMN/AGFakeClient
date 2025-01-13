@@ -60,15 +60,6 @@
 
 
 ساخته شده با عشق ❤️
----
 
-# C# Full Project
 
-This is a project written in C#.
-
-## Description
-This project is a simple C# application that demonstrates various features of the language, including classes, methods, and LINQ.
-
-## Language
-- C#
 </div>
